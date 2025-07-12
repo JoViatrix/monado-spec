@@ -1,8 +1,8 @@
-%global commit 82f3264d88a1de7e94a2d1f021cdb5f9ce308857
+%global commit main
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 
 Name: monado
-Version: 21.0.0^20240520g82f3264d
+Version: %{commit}
 Release: %autorelease
 Summary: Monado - XR Runtime (XRT)
 
@@ -38,6 +38,10 @@ BuildRequires: glslc
 BuildRequires: pkgconfig(glslang)
 BuildRequires: hidapi-devel
 BuildRequires: libv4l-devel
+BuildRequires: libsurvive-devel
+BuildRequires: pkgconfig(percetto)
+BuildRequires: pkgconfig(wayland-protocols)
+BuildRequires: pkgconfig(openvr)
 
 %description
 Monado is an open source XR runtime delivering immersive experiences such as VR
@@ -80,7 +84,7 @@ systems in the near future.
 
 %{_includedir}/monado/*
 
-%{_libdir}/libmonado.so
+%{_libdir}/libmonado.so*
 %{_libdir}/libopenxr_monado.so
 
 %{_datadir}/openxr/*
@@ -89,4 +93,3 @@ systems in the near future.
 
 %changelog
 %autochangelog
-
