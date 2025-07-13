@@ -1,14 +1,11 @@
-%global commit main
-%global shortcommit %(c=%{commit}; echo ${c:0:7})
-
 Name: monado
-Version: %{commit}
+Version: 
 Release: %autorelease
 Summary: Monado - XR Runtime (XRT)
 
 License: bsl-1.0
 URL: https://monado.freedesktop.org/
-Source0: https://gitlab.freedesktop.org/monado/monado/-/archive/%{commit}/monado-%{commit}.tar.gz
+Source0: https://gitlab.freedesktop.org/monado/monado/-/archive/%{version}/monado-%{version}.tar.gz
 
 BuildRequires: cmake >= 3.13
 BuildRequires: gcc-c++
