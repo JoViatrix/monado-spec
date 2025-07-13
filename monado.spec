@@ -43,6 +43,9 @@ BuildRequires: pkgconfig(percetto)
 BuildRequires: pkgconfig(wayland-protocols)
 BuildRequires: pkgconfig(openvr)
 
+Requires: opencv-videoio >= 4.11.0
+Requires: basalt-monado
+
 %description
 Monado is an open source XR runtime delivering immersive experiences such as VR
 and AR on on mobile, PC/desktop, and any other device
