@@ -53,7 +53,7 @@ systems in the near future.
 "Monado" has no specific meaning and is just a name.
 
 %prep
-%autosetup -n %{name}-%{commit}
+%autosetup -n %{name}-%{version}
 
 %build
 %cmake -DBUILD_DOC:BOOL=OFF
