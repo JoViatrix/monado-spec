@@ -45,6 +45,9 @@ BuildRequires: libbsd-devel
 Requires: opencv-videoio >= 4.11.0
 Requires: basalt-monado
 
+Conflicts: monado-constellation
+
+
 %description
 Monado is an open source XR runtime delivering immersive experiences such as VR
 and AR on on mobile, PC/desktop, and any other device
@@ -94,4 +97,6 @@ systems in the near future.
 
 
 %changelog
+- Adding conflict with monado-constellation
+- Adding dbus-devel and libbsd-devel build deps
 %autochangelog
