@@ -39,6 +39,8 @@ BuildRequires: libsurvive-devel
 BuildRequires: pkgconfig(percetto)
 BuildRequires: pkgconfig(wayland-protocols)
 BuildRequires: pkgconfig(openvr)
+BuildRequires: dbus-devel
+BuildRequires: libbsd-devel
 
 Requires: opencv-videoio >= 4.11.0
 Requires: basalt-monado
