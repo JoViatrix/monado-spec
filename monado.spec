@@ -1,5 +1,5 @@
 Name: monado
-Version: 3af6b85
+Version: 6f1d531
 Release: %autorelease
 Summary: Monado - XR Runtime (XRT)
 
