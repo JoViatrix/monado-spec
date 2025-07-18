@@ -22,7 +22,6 @@ jobs:
 
       - name: Install git
         run: sudo dnf install -y git
-
       - name: Get latest Monado commit
         id: monado
         run: |
@@ -81,6 +80,7 @@ jobs:
         if: steps.check.outputs.update_needed == 'true'
         run: |
           cd $GITHUB_WORKSPACE
+          git init
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git commit -am "Update spec to Monado commit ${{ steps.monado.outputs.commit }}"
