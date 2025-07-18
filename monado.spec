@@ -1,4 +1,4 @@
-%global commit 0
+%global commit 4235555
 %global datetimever 202507181445%{commit}
 
 Name: monado

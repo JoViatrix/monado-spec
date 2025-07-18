@@ -29,6 +29,7 @@ jobs:
       - name: Get current commit from spec file
         id: current
         run: |
+          echo $(ls ./)
           current_commit=$(grep '^%global commit' *.spec | awk '{ print $3 }')
           echo "current=$current_commit" >> "$GITHUB_OUTPUT"
 
