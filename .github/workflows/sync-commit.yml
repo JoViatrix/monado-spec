@@ -23,8 +23,9 @@ jobs:
       - name: Get latest Monado commit
         id: monado
         run: |
-          latest_commit=$(git ls-remote https://gitlab.freedesktop.org/monado/monado.git HEAD | cut -c1-7)
-          echo "commit=$latest_commit" >> "$GITHUB_OUTPUT"
+          latest_commit=$(git ls-remote https://gitlab.freedesktop.org/monado/monado.git HEAD | cut -f1)
+          short_commit=${latest_commit:0:7}
+          echo "commit=$short_commit" >> "$GITHUB_OUTPUT"
 
       - name: Get current commit from spec file
         id: current
