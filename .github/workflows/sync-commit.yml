@@ -79,7 +79,6 @@ jobs:
       - name: Commit and push changes
         if: steps.check.outputs.update_needed == 'true'
         run: |
-          cd $GITHUB_WORKSPACE
           git init
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
