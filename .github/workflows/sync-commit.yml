@@ -10,7 +10,9 @@ permissions:
 
 jobs:
   update-spec:
-    runs-on: fedora:42
+    runs-on: ubuntu-latest
+    container:
+      image: quay.io/fedora/fedora:latest
 
     steps:
       - name: Checkout this repository
