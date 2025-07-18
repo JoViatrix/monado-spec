@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   update-spec:
-    runs-on: fedora:latest
+    runs-on: fedora:42
 
     steps:
       - name: Checkout this repository
