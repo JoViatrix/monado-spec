@@ -15,16 +15,12 @@ jobs:
       image: quay.io/fedora/fedora:latest
 
     steps:
+      - name: Install git
+        run: sudo dnf install -y git
+
       - name: Checkout this repository
         uses: actions/checkout@v4
 
-      - name: Set Git username and emails
-        run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-
-      - name: Install git
-        run: sudo dnf install -y git
       - name: Get latest Monado commit
         id: monado
         run: |
@@ -82,5 +78,7 @@ jobs:
       - name: Commit and push changes
         if: steps.check.outputs.update_needed == 'true'
         run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
           git commit -am "Update spec to Monado commit ${{ steps.monado.outputs.commit }}"
           git push
