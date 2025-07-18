@@ -1,9 +1,9 @@
-%global commit 4235555
-%global datetimever 202507181445%{commit}
+%global commit 723fa68
+%global datetimever 202507181005723fa68
 
 Name: monado
-Version: %{datetimever}
-Release: %autorelease.1
+Version: 202507181005723fa68
+Release: 1%{?dist}
 Summary: Monado - XR Runtime (XRT)
 
 License: bsl-1.0
@@ -100,4 +100,7 @@ systems in the near future.
 
 
 %changelog
+* Fri Jul 18 2025 GitHub Actions <actions@github.com> - 202507181005723fa68-1
+- Auto-update to Monado commit 723fa68
+
 %autochangelog
