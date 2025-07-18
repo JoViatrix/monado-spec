@@ -1,11 +1,14 @@
+%global commit 723fa68
+%global datetimever 202507181445%{commit}
+
 Name: monado
-Version: 723fa68
-Release: %autorelease
+Version: %{datetimever}
+Release: %autorelease.1
 Summary: Monado - XR Runtime (XRT)
 
 License: bsl-1.0
 URL: https://monado.freedesktop.org/
-Source0: https://gitlab.freedesktop.org/monado/monado/-/archive/%{version}/monado-%{version}.tar.gz
+Source0: https://gitlab.freedesktop.org/monado/monado/-/archive/%{commit}/monado-%{commit}.tar.gz
 
 BuildRequires: cmake >= 3.13
 BuildRequires: gcc-c++
@@ -58,7 +61,7 @@ systems in the near future.
 "Monado" has no specific meaning and is just a name.
 
 %prep
-%autosetup -n %{name}-%{version}
+%autosetup -n %{name}-%{commit}
 
 %build
 %cmake -DBUILD_DOC:BOOL=OFF
@@ -97,6 +100,4 @@ systems in the near future.
 
 
 %changelog
-- Adding conflict with monado-constellation
-- Adding dbus-devel and libbsd-devel build deps
 %autochangelog
