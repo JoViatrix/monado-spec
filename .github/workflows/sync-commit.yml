@@ -59,7 +59,7 @@ jobs:
 
       - name: Install rpmdevtools
         if: steps.check.outputs.update_needed == 'true'
-        run: sudo apt-get update && sudo apt-get install -y rpmdevtools
+        run: sudo dnf install -y rpmdevtools
 
       - name: Update spec file with new version/commit
         if: steps.check.outputs.update_needed == 'true'
