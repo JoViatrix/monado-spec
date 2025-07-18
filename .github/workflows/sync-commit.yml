@@ -2,7 +2,7 @@ name: Update Spec with Latest Monado Commit
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Every day at 0:00 UTC
+    - cron: '0 0 * * *'  # Daily at midnight UTC
   workflow_dispatch:
 
 permissions:
@@ -11,15 +11,24 @@ permissions:
 jobs:
   update-spec:
     runs-on: ubuntu-latest
-    container:
-      image: quay.io/fedora/fedora:latest
 
     steps:
-      - name: Install git
-        run: sudo dnf install -y git
-
       - name: Checkout this repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y rpm rpm2cpio cpio
+          sudo apt-get install -y python3-setuptools
+          # Install rpmdevtools from source (no apt package)
+          git clone https://src.fedoraproject.org/rpms/rpmdevtools.git
+          cd rpmdevtools
+          mkdir -p ~/bin
+          cp rpmdev-bumpspec ~/bin
+          echo "$HOME/bin" >> $GITHUB_PATH
 
       - name: Get latest Monado commit
         id: monado
@@ -50,17 +59,12 @@ jobs:
           echo "Spec is already up to date with commit ${{ steps.current.outputs.current }}"
           exit 0
 
-      # These steps will only run if update_needed is true
       - name: Generate version string
         if: steps.check.outputs.update_needed == 'true'
         id: version
         run: |
           timestamp=$(date -u +'%Y%m%d%H%M')
           echo "version=${timestamp}${{ steps.monado.outputs.commit }}" >> "$GITHUB_OUTPUT"
-
-      - name: Install rpmdevtools
-        if: steps.check.outputs.update_needed == 'true'
-        run: sudo dnf install -y rpmdevtools
 
       - name: Update spec file with new version/commit
         if: steps.check.outputs.update_needed == 'true'
