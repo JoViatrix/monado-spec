@@ -20,17 +20,18 @@ jobs:
         with:
           fetch-depth: 0  # Needed for changelog updates
 
+      - name: Install git
+        run: sudo dnf install -y git
+
       - name: Get latest Monado commit
         id: monado
         run: |
-          latest_commit=$(git ls-remote https://gitlab.freedesktop.org/monado/monado.git HEAD | cut -f1)
-          short_commit=${latest_commit:0:7}
-          echo "commit=$short_commit" >> "$GITHUB_OUTPUT"
+          latest_commit=$(git ls-remote https://gitlab.freedesktop.org/monado/monado.git HEAD | cut -c1-7)
+          echo "commit=$latest_commit" >> "$GITHUB_OUTPUT"
 
       - name: Get current commit from spec file
         id: current
         run: |
-          echo $(ls ./)
           current_commit=$(grep '^%global commit' *.spec | awk '{ print $3 }')
           echo "current=$current_commit" >> "$GITHUB_OUTPUT"
 
@@ -61,7 +62,7 @@ jobs:
 
       - name: Install rpmdevtools
         if: steps.check.outputs.update_needed == 'true'
-        run: sudo dnf install -y rpmdevtools git
+        run: sudo dnf install -y rpmdevtools
 
       - name: Update spec file with new version/commit
         if: steps.check.outputs.update_needed == 'true'
