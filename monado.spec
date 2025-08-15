@@ -1,8 +1,8 @@
-%global commit 2bc8034
-%global datetimever 2025081401262bc8034
+%global commit 8a823e8
+%global datetimever 2025081501268a823e8
 
 Name: monado
-Version: 2025081401262bc8034
+Version: 2025081501268a823e8
 Release: 1%{?dist}
 Summary: Monado - XR Runtime (XRT)
 
@@ -100,6 +100,9 @@ systems in the near future.
 
 
 %changelog
+* Fri Aug 15 2025 GitHub Actions <actions@github.com> - 2025081501268a823e8-1
+- Auto-update to Monado commit 8a823e8
+
 * Thu Aug 14 2025 GitHub Actions <actions@github.com> - 2025081401262bc8034-1
 - Auto-update to Monado commit 2bc8034
 
