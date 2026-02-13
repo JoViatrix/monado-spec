@@ -1,8 +1,8 @@
-%global commit 7aa33fc
-%global datetimever 2026021002137aa33fc
+%global commit 6b0e2ce
+%global datetimever 2026021302066b0e2ce
 
 Name: monado
-Version: 2026021002137aa33fc
+Version: 2026021302066b0e2ce
 Release: 1%{?dist}
 Summary: Monado - XR Runtime (XRT)
 
@@ -100,6 +100,9 @@ systems in the near future.
 
 
 %changelog
+* Fri Feb 13 2026 GitHub Actions <actions@github.com> - 2026021302066b0e2ce-1
+- Auto-update to Monado commit 6b0e2ce
+
 * Tue Feb 10 2026 GitHub Actions <actions@github.com> - 2026021002137aa33fc-1
 - Auto-update to Monado commit 7aa33fc
 
