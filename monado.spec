@@ -82,8 +82,8 @@ systems in the near future.
 %dir %{_datadir}/openxr
 %dir %{_datadir}/steamvr-monado
 
-/usr/lib/systemd/user/monado.service
-/usr/lib/systemd/user/monado.socket
+%{_prefix}/lib/systemd/user/monado.service
+%{_prefix}/lib/systemd/user/monado.socket
 
 %{_bindir}/monado-cli
 %{_bindir}/monado-ctl
@@ -97,6 +97,8 @@ systems in the near future.
 
 %{_datadir}/openxr/*
 %{_datadir}/steamvr-monado/*
+
+%{_datadir}/st-openvr/*
 
 
 %changelog
